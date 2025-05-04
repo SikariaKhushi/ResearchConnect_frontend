@@ -17,7 +17,7 @@ export default function FacultyProfilePage() {
     try {
       console.log("Searching for faculty:", query);
       const res = await axios.get(
-        `https://rf-backend-alpha.vercel.app/api/faculty/search?name=${(query)}`,
+        `https://reseach-connect-pkad.vercel.app/api/faculty/search?name=${(query)}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

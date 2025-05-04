@@ -48,7 +48,7 @@ export default function FacultyProfilePage() {
         const fetchFacultyData = async () => {
             try {
                 const response = await axios.get(
-                    `https://rf-backend-alpha.vercel.app/api/faculty/${id}`,
+                    `https://reseach-connect-pkad.vercel.app/api/faculty/${id}`,
                     {
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem("token")}`,

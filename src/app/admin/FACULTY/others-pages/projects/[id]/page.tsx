@@ -8,6 +8,7 @@ import { PlusCircle } from "lucide-react";
 import { Tabs, Button } from 'antd';
 import Link from 'next/link';
 import { jwtDecode } from "jwt-decode";
+import GroupChatTab from "./chat/page";
 
 
 // Define interfaces for proper type checking
@@ -93,7 +94,7 @@ export default function ProjectPage() {
       
       try {
         setLoading(true);
-        const response = await axios.get(`https://rf-backend-alpha.vercel.app/api/projects/${id}`, {
+        const response = await axios.get(`https://reseach-connect-pkad.vercel.app/api/projects/${id}`, {
           headers: {
             Authorization: `Bearer ${localToken}`,
           },
@@ -125,7 +126,7 @@ export default function ProjectPage() {
     
     try {
       setLoadingApplications(true);
-      const response = await axios.get(`https://rf-backend-alpha.vercel.app/api/applications/project/${id}/`, {
+      const response = await axios.get(`https://reseach-connect-pkad.vercel.app/api/applications/project/${id}/`, {
         headers: {
           Authorization: `Bearer ${localToken}`,
         },
@@ -151,7 +152,7 @@ export default function ProjectPage() {
     try {
       // Corrected URL structure to match backend route
       await axios.delete(
-        `https://rf-backend-alpha.vercel.app/api/projects/${id}/participants/${participantUserId}`,
+        `https://reseach-connect-pkad.vercel.app/api/projects/${id}/participants/${participantUserId}`,
         {
           headers: {
             Authorization: `Bearer ${localToken}`,
@@ -186,7 +187,7 @@ export default function ProjectPage() {
     const localToken = localStorage.getItem("token");
     
     try {
-      await axios.put(`https://rf-backend-alpha.vercel.app/api/applications/${applicationId}/status`, 
+      await axios.put(`https://reseach-connect-pkad.vercel.app/api/applications/${applicationId}/status`, 
         { status }, 
         {
           headers: {
@@ -204,7 +205,7 @@ export default function ProjectPage() {
       
       // If accepted, refresh the project to update participants
       if (status === "ACCEPTED") {
-        const response = await axios.get(`https://rf-backend-alpha.vercel.app/api/projects/${id}`, {
+        const response = await axios.get(`https://reseach-connect-pkad.vercel.app/api/projects/${id}`, {
           headers: {
             Authorization: `Bearer ${localToken}`,
           },
@@ -226,14 +227,14 @@ export default function ProjectPage() {
     try {
       if (project.isFavorite) {
         // Remove from favorites
-        await axios.delete(`https://rf-backend-alpha.vercel.app/api/projects/${id}/favorite`, {
+        await axios.delete(`https://reseach-connect-pkad.vercel.app/api/projects/${id}/favorite`, {
           headers: {
             Authorization: `Bearer ${localToken}`,
           },
         });
       } else {
         // Add to favorites
-        await axios.post(`https://rf-backend-alpha.vercel.app/api/projects/${id}/favorite`, {}, {
+        await axios.post(`https://reseach-connect-pkad.vercel.app/api/projects/${id}/favorite`, {}, {
           headers: {
             Authorization: `Bearer ${localToken}`,
           },
@@ -481,7 +482,7 @@ export default function ProjectPage() {
                               const localToken = localStorage.getItem("token");
                               if (!localToken) throw new Error("No authentication token");
 
-                              await axios.delete(`https://rf-backend-alpha.vercel.app/api/projects/${id}`, {
+                              await axios.delete(`https://reseach-connect-pkad.vercel.app/api/projects/${id}`, {
                                 headers: { Authorization: `Bearer ${localToken}` }
                               });
                               
@@ -571,6 +572,22 @@ export default function ProjectPage() {
                   <Link href={`/admin/FACULTY/others-pages/projects/${project.id}/submissions`}>
                     <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
                       View Submissions
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            ),
+          },
+          {
+            key: 'chat',
+            label: 'Group Chat',
+            children: (
+              <div className="py-4">
+                <p>Communicate with project members through group chat</p>
+                <div className="mt-4">
+                  <Link href={`/admin/FACULTY/others-pages/projects/${project.id}/chat`}>
+                    <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+                      Open Chat
                     </button>
                   </Link>
                 </div>

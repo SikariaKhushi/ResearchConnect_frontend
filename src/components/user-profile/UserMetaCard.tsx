@@ -41,8 +41,8 @@ export default function UserMetaCard({ data }: any) {
 
       // Check if the user is a faculty or other type of user and set API URL accordingly
       const apiUrl = decodedToken.facultyId
-        ? `https://rf-backend-alpha.vercel.app/api/faculty/${decodedToken.facultyId}`
-        : `https://rf-backend-alpha.vercel.app/api/user/`;
+        ? `https://reseach-connect-pkad.vercel.app/api/faculty/${decodedToken.facultyId}`
+        : `https://reseach-connect-pkad.vercel.app/api/user/`;
 
       const response = await axios.patch(
         apiUrl,

@@ -86,7 +86,7 @@ export default function ProjectPage() {
       
       try {
         setLoading(true);
-        const response = await axios.get(`https://rf-backend-alpha.vercel.app/api/projects/${id}`, {
+        const response = await axios.get(`https://reseach-connect-pkad.vercel.app/api/projects/${id}`, {
           headers: {
             Authorization: `Bearer ${localToken}`,
           },
@@ -111,7 +111,7 @@ export default function ProjectPage() {
           setLoadingApplicationStatus(true);
           const localToken = localStorage.getItem("token");
           const response = await axios.get(
-            "https://rf-backend-alpha.vercel.app/api/applications/student/applications",
+            "https://reseach-connect-pkad.vercel.app/api/applications/student/applications",
             {
               headers: { Authorization: `Bearer ${localToken}` },
             }
@@ -139,7 +139,7 @@ export default function ProjectPage() {
     
     try {
       setLoadingApplications(true);
-      const response = await axios.get(`https://rf-backend-alpha.vercel.app/api/applications/project/${id}/`, {
+      const response = await axios.get(`https://reseach-connect-pkad.vercel.app/api/applications/project/${id}/`, {
         headers: {
           Authorization: `Bearer ${localToken}`,
         },
@@ -165,7 +165,7 @@ export default function ProjectPage() {
     try {
       // Corrected URL structure to match backend route
       await axios.delete(
-        `https://rf-backend-alpha.vercel.app/api/projects/${id}/participants/${participantUserId}`,
+        `https://reseach-connect-pkad.vercel.app/api/projects/${id}/participants/${participantUserId}`,
         {
           headers: {
             Authorization: `Bearer ${localToken}`,
@@ -200,7 +200,7 @@ export default function ProjectPage() {
     const localToken = localStorage.getItem("token");
     
     try {
-      await axios.put(`https://rf-backend-alpha.vercel.app/api/applications/${applicationId}/status`, 
+      await axios.put(`https://reseach-connect-pkad.vercel.app/api/applications/${applicationId}/status`, 
         { status }, 
         {
           headers: {
@@ -218,7 +218,7 @@ export default function ProjectPage() {
       
       // If accepted, refresh the project to update participants
       if (status === "ACCEPTED") {
-        const response = await axios.get(`https://rf-backend-alpha.vercel.app/api/projects/${id}`, {
+        const response = await axios.get(`https://reseach-connect-pkad.vercel.app/api/projects/${id}`, {
           headers: {
             Authorization: `Bearer ${localToken}`,
           },
@@ -240,14 +240,14 @@ export default function ProjectPage() {
     try {
       if (project.isFavorite) {
         // Remove from favorites
-        await axios.delete(`https://rf-backend-alpha.vercel.app/api/projects/${id}/favorite`, {
+        await axios.delete(`https://reseach-connect-pkad.vercel.app/api/projects/${id}/favorite`, {
           headers: {
             Authorization: `Bearer ${localToken}`,
           },
         });
       } else {
         // Add to favorites
-        await axios.post(`https://rf-backend-alpha.vercel.app/api/projects/${id}/favorite`, {}, {
+        await axios.post(`https://reseach-connect-pkad.vercel.app/api/projects/${id}/favorite`, {}, {
           headers: {
             Authorization: `Bearer ${localToken}`,
           },
@@ -499,7 +499,7 @@ export default function ProjectPage() {
                           if (window.confirm("Are you sure you want to delete this project? This action cannot be undone.")) {
                             // Delete project logic here
                             const localToken = localStorage.getItem("token");
-                            axios.delete(`https://rf-backend-alpha.vercel.app/api/projects/${id}`, {
+                            axios.delete(`https://reseach-connect-pkad.vercel.app/api/projects/${id}`, {
                               headers: {
                                 Authorization: `Bearer ${localToken}`,
                               },

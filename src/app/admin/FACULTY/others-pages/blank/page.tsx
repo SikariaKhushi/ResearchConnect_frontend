@@ -34,7 +34,7 @@ export default function MyProjectsPage() {
       if (role === "FACULTY" && localToken) {
         try {
           setLoading(true); // Set loading to true before fetch
-          const res = await axios.get("https://rf-backend-alpha.vercel.app/api/projects/", {
+          const res = await axios.get("https://reseach-connect-pkad.vercel.app/api/projects/", {
             headers: {
               Authorization: `Bearer ${localToken}`,
             },

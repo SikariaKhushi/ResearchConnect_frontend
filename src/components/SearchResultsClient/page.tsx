@@ -67,7 +67,7 @@ const SearchResults = () => {
 
       setLoading(true);
       try {
-        const res = await axios.post("https://rf-backend-alpha.vercel.app/api/search/projects", {
+        const res = await axios.post("https://reseach-connect-pkad.vercel.app/api/search/projects", {
           ...filters,
         });
 

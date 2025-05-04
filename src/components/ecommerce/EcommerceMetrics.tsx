@@ -24,8 +24,8 @@ export const EcommerceMetrics = () => {
         // Fetch projects based on role
         const projectsRes = await axios.get(
           role === "FACULTY" 
-            ? "https://rf-backend-alpha.vercel.app/api/projects/faculty"
-            : "https://rf-backend-alpha.vercel.app/api/projects/user",
+            ? "https://reseach-connect-pkad.vercel.app/api/projects/faculty"
+            : "https://reseach-connect-pkad.vercel.app/api/projects/user",
           {
             headers: { Authorization: `Bearer ${localToken}` },
           }
@@ -42,7 +42,7 @@ export const EcommerceMetrics = () => {
         } else {
           // Student-specific pending applications count
           const applicationsRes = await axios.get(
-            "https://rf-backend-alpha.vercel.app/api/applications/student/applications",
+            "https://reseach-connect-pkad.vercel.app/api/applications/student/applications",
             { headers: { Authorization: `Bearer ${localToken}` } }
           );
           setPendingCount(applicationsRes.data.filter((app: any) => app.status === "PENDING").length);

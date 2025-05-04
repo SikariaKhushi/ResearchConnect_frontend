@@ -43,7 +43,7 @@ const StudentSubmissionsPage = () => {
     setLoading(true);
     try {
         const token = localStorage.getItem('token');
-      const response = await fetch(`https://rf-backend-alpha.vercel.app/api/submissions/project/${projectId}`, {
+      const response = await fetch(`https://reseach-connect-pkad.vercel.app/api/submissions/project/${projectId}`, {
         headers: {
           'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`

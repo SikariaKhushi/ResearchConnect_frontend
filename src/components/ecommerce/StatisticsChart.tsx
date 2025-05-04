@@ -31,7 +31,7 @@ export default function StatisticsChart() {
         // Get token from localStorage or wherever you store it
         const token = localStorage.getItem('token') || ''; 
         
-        const response = await axios.get('https://rf-backend-alpha.vercel.app/api/projects/deadlines', {
+        const response = await axios.get('https://reseach-connect-pkad.vercel.app/api/projects/deadlines', {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'

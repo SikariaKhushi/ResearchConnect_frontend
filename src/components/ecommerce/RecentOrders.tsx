@@ -25,8 +25,8 @@ export default function RecentOrders() {
       try {
         const endpoint =
           role === "FACULTY"
-            ? "https://rf-backend-alpha.vercel.app/api/projects/faculty/current"
-            : "https://rf-backend-alpha.vercel.app/api/projects/current";
+            ? "https://reseach-connect-pkad.vercel.app/api/projects/faculty/current"
+            : "https://reseach-connect-pkad.vercel.app/api/projects/current";
 
         const response = await axios.get(endpoint, {
           headers: {

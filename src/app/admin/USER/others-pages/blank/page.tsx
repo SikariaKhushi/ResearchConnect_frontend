@@ -38,7 +38,7 @@ export default function MyProjectsPage() {
         
         // Fetch main projects
         const projectsRes = await axios.get(
-          "https://rf-backend-alpha.vercel.app/api/projects/user",
+          "https://reseach-connect-pkad.vercel.app/api/projects/user",
           {
             headers: { Authorization: `Bearer ${localToken}` },
           }
@@ -46,7 +46,7 @@ export default function MyProjectsPage() {
 
         // Fetch applied projects
         const applicationsRes = await axios.get(
-          "https://rf-backend-alpha.vercel.app/api/applications/student/applications",
+          "https://reseach-connect-pkad.vercel.app/api/applications/student/applications",
           {
             headers: { Authorization: `Bearer ${localToken}` },
           }

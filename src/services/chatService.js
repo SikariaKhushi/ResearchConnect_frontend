@@ -1,30 +1,14 @@
 // src/services/chatService.js
 import axios from 'axios';
 
-const API_URL = "https://rf-backend-alpha.vercel.app" || 'http://localhost:5000/api';
+const API_URL = "https://reseach-connect-pkad.vercel.app" || 'http://localhost:5000/api';
 
 const chatService = {
-  // Initialize chat room for a project
-  initializeChatRoom: async (projectId, token) => {
-    try {
-      const response = await axios.post(
-        `${API_URL}/project/${projectId}/chat`,
-        {},
-        {
-          headers: { Authorization: `Bearer ${token}` }
-        }
-      );
-      return response.data;
-    } catch (error) {
-      throw error.response?.data || error.message;
-    }
-  },
-
-  // Get chat room for a project with pagination
-  getChatRoom: async (projectId, token, page = 1, limit = 50) => {
+  // Get chat messages for a project with pagination
+  getChatMessages: async (projectId, token, page = 1, limit = 50) => {
     try {
       const response = await axios.get(
-        `${API_URL}/project/${projectId}/chat?page=${page}&limit=${limit}`,
+        `${API_URL}/projects/${projectId}/chat?page=${page}&limit=${limit}`,
         {
           headers: { Authorization: `Bearer ${token}` }
         }
@@ -35,16 +19,15 @@ const chatService = {
     }
   },
 
-  // Send a message to a chat room
+  // Send message with optional file attachments
   sendMessage: async (projectId, messageData, token) => {
     try {
-      // Handle file attachments with FormData
       const formData = new FormData();
-      
+
       if (messageData.content) {
         formData.append('content', messageData.content);
       }
-      
+
       if (messageData.attachments && messageData.attachments.length > 0) {
         for (const file of messageData.attachments) {
           formData.append('attachments', file);
@@ -52,7 +35,7 @@ const chatService = {
       }
 
       const response = await axios.post(
-        `${API_URL}/project/${projectId}/chat/message`,
+        `${API_URL}/projects/${projectId}/chat`,
         formData,
         {
           headers: {
@@ -67,11 +50,11 @@ const chatService = {
     }
   },
 
-  // Mark messages as read in a chat room
-  markMessagesAsRead: async (projectId, token) => {
+  // Mark all messages as read in a chat room
+  markAllMessagesAsRead: async (projectId, token) => {
     try {
       const response = await axios.put(
-        `${API_URL}/project/${projectId}/chat/read`,
+        `${API_URL}/projects/${projectId}/chat/read`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` }
@@ -83,8 +66,40 @@ const chatService = {
     }
   },
 
-  // Get unread message count for current user
-  getUnreadMessageCount: async (token) => {
+  // Mark a specific message as read
+  markMessageAsRead: async (projectId, messageId, token) => {
+    try {
+      const response = await axios.put(
+        `${API_URL}/projects/${projectId}/chat/${messageId}/read`,
+        {},
+        {
+          headers: { Authorization: `Bearer ${token}` }
+        }
+      );
+      return response.data;
+    } catch (error) {
+      throw error.response?.data || error.message;
+    }
+  },
+
+  // Add or remove reaction from a message
+  toggleReaction: async (projectId, messageId, reaction, token) => {
+    try {
+      const response = await axios.post(
+        `${API_URL}/projects/${projectId}/chat/${messageId}/reactions`,
+        { reaction },
+        {
+          headers: { Authorization: `Bearer ${token}` }
+        }
+      );
+      return response.data;
+    } catch (error) {
+      throw error.response?.data || error.message;
+    }
+  },
+
+  // Get unread message count for all chats
+  getUnreadMessageCounts: async (token) => {
     try {
       const response = await axios.get(
         `${API_URL}/chat/unread`,

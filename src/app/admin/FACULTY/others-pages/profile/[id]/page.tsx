@@ -45,7 +45,7 @@ export default function UserProfile() {
         const fetchProfileData = async () => {
             try {
                 const response = await axios.get(
-                    `https://rf-backend-alpha.vercel.app/api/user/${id}`,
+                    `https://reseach-connect-pkad.vercel.app/api/user/${id}`,
                     {
                         headers: {
                             Authorization: `Bearer ${localStorage.getItem("token")}`,

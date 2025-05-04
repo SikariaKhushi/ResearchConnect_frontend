@@ -24,7 +24,7 @@ export default function NewApplication() {
     const fetchProjectDetails = async () => {
       try {
         const response = await axios.get(
-          `https://rf-backend-alpha.vercel.app/api/projects/${id}`,
+          `https://reseach-connect-pkad.vercel.app/api/projects/${id}`,
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -56,7 +56,7 @@ export default function NewApplication() {
       }
 
       const response = await axios.post(
-        `https://rf-backend-alpha.vercel.app/api/applications/project/apply/${id}`,
+        `https://reseach-connect-pkad.vercel.app/api/applications/project/apply/${id}`,
         formData,
         {
           headers: {

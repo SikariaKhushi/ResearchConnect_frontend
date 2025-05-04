@@ -33,7 +33,7 @@ export default function SignUpForm() {
   //   const formData = { name, email, password };
 
   //   try {
-  //     const response = await axios.post("https://rf-backend-alpha.vercel.app/auth/register", formData, {
+  //     const response = await axios.post("https://reseach-connect-pkad.vercel.app/auth/register", formData, {
   //       headers: {
   //         "Content-Type": "application/json",
   //       },
@@ -56,7 +56,7 @@ export default function SignUpForm() {
     const formData = { name, email, password };
 
     try {
-      const response = await axios.post("https://rf-backend-alpha.vercel.app/auth/register", formData, {
+      const response = await axios.post("https://reseach-connect-pkad.vercel.app/auth/register", formData, {
         headers: { "Content-Type": "application/json" },
       });
 

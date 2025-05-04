@@ -54,7 +54,7 @@ export default function UserInfoCard({ data: initialData }: any) {
 
       if (pathname === "/admin/FACULTY/others-pages/profile") {
         await axios.patch(
-          `https://rf-backend-alpha.vercel.app/api/faculty/${decodedToken.facultyId}`,
+          `https://reseach-connect-pkad.vercel.app/api/faculty/${decodedToken.facultyId}`,
           updatedData,
           {
             headers: {
@@ -65,7 +65,7 @@ export default function UserInfoCard({ data: initialData }: any) {
         );
       } else if (pathname === "/admin/USER/others-pages/profile") {
         await axios.patch(
-          `https://rf-backend-alpha.vercel.app/api/user/`,
+          `https://reseach-connect-pkad.vercel.app/api/user/`,
           updatedData,
           {
             headers: {

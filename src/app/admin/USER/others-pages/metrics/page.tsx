@@ -50,11 +50,11 @@ export default function MetricsPage() {
           facultiesRes,
           statusRes,
         ] = await Promise.all([
-          axios.get("https://rf-backend-alpha.vercel.app/api/metrics/submissions", { headers }),
-          axios.get("https://rf-backend-alpha.vercel.app/api/metrics/projects", { headers }),
-          axios.get("https://rf-backend-alpha.vercel.app/api/metrics/users", { headers }),
-          axios.get("https://rf-backend-alpha.vercel.app/api/metrics/faculties", { headers }),
-          axios.get("https://rf-backend-alpha.vercel.app/api/metrics/projects/status", { headers }),
+          axios.get("https://reseach-connect-pkad.vercel.app/api/metrics/submissions", { headers }),
+          axios.get("https://reseach-connect-pkad.vercel.app/api/metrics/projects", { headers }),
+          axios.get("https://reseach-connect-pkad.vercel.app/api/metrics/users", { headers }),
+          axios.get("https://reseach-connect-pkad.vercel.app/api/metrics/faculties", { headers }),
+          axios.get("https://reseach-connect-pkad.vercel.app/api/metrics/projects/status", { headers }),
         ]);
 
         setMetrics({

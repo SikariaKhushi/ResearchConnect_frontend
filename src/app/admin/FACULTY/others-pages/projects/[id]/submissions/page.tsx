@@ -40,7 +40,7 @@ const ProjectSubmissionsPage = () => {
     setLoading(true);
     try {
       const token = localStorage.getItem('token'); // Or however you store your auth token
-      const response = await fetch(`https://rf-backend-alpha.vercel.app/api/submissions/project/${projectId}`, {
+      const response = await fetch(`https://reseach-connect-pkad.vercel.app/api/submissions/project/${projectId}`, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}` // Add this line
@@ -97,7 +97,7 @@ const ProjectSubmissionsPage = () => {
       const token = localStorage.getItem('token');
       if (editingSubmission) {
         // Update existing submission
-        response = await fetch(`https://rf-backend-alpha.vercel.app/api/submissions/${editingSubmission.id}`, {
+        response = await fetch(`https://reseach-connect-pkad.vercel.app/api/submissions/${editingSubmission.id}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -107,7 +107,7 @@ const ProjectSubmissionsPage = () => {
         });
       } else {
         // Create new submission
-        response = await fetch('https://rf-backend-alpha.vercel.app/api/submissions/', {
+        response = await fetch('https://reseach-connect-pkad.vercel.app/api/submissions/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -133,7 +133,7 @@ const ProjectSubmissionsPage = () => {
   const handleDelete = async (submissionId: string) => {
     try {
         const token = localStorage.getItem('token');
-      const response = await fetch(`https://rf-backend-alpha.vercel.app/api/submissions/${submissionId}`, {
+      const response = await fetch(`https://reseach-connect-pkad.vercel.app/api/submissions/${submissionId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

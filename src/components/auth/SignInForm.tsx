@@ -45,7 +45,7 @@ export default function SignInForm() {
       const idToken = await user.getIdToken();
       console.log(`googleidToken: ${idToken}`);
       const response = await axios.post(
-        "https://rf-backend-alpha.vercel.app/auth/googleLogin",
+        "https://reseach-connect-pkad.vercel.app/auth/googleLogin",
         {},
         {
           headers: {
@@ -81,7 +81,7 @@ export default function SignInForm() {
   //     console.log(`email: ${email}`);
   //     console.log(`password: ${password}`);
   //     const response = await axios.post(
-  //       "https://rf-backend-alpha.vercel.app/auth/login",
+  //       "https://reseach-connect-pkad.vercel.app/auth/login",
   //       { email, password }
   //     );
   //     const jwt = response.data.jwt;
@@ -103,7 +103,7 @@ export default function SignInForm() {
     setLoading(true);
 
     try {
-      const response = await fetch("https://rf-backend-alpha.vercel.app/auth/login", {
+      const response = await fetch("https://reseach-connect-pkad.vercel.app/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),

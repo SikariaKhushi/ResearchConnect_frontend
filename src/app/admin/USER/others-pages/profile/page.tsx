@@ -18,7 +18,7 @@ const fetchData = async () => {
   console.log("Decoded JWT:", decodedToken);
 
   const res = await axios.get(
-    `https://rf-backend-alpha.vercel.app/api/user/${userId}`,
+    `https://reseach-connect-pkad.vercel.app/api/user/${userId}`,
     {
       headers: {
         Authorization: `Bearer ${token}`,

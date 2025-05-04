@@ -30,7 +30,7 @@ export default function QuickActions() {
     const fetchRecentProjects = async () => {
       try {
         const response = await axios.get(
-          "https://rf-backend-alpha.vercel.app/api/projects/recent",
+          "https://reseach-connect-pkad.vercel.app/api/projects/recent",
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,

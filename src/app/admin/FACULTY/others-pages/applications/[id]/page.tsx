@@ -44,7 +44,7 @@ export default function ApplicationsPage() {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.get(
-          `https://rf-backend-alpha.vercel.app/api/applications/project/${id}/`,
+          `https://reseach-connect-pkad.vercel.app/api/applications/project/${id}/`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -70,7 +70,7 @@ export default function ApplicationsPage() {
     try {
       const token = localStorage.getItem("token");
       await axios.put(
-        `https://rf-backend-alpha.vercel.app/api/applications/${applicationId}/status`,
+        `https://reseach-connect-pkad.vercel.app/api/applications/${applicationId}/status`,
         { status },
         {
           headers: { Authorization: `Bearer ${token}` },

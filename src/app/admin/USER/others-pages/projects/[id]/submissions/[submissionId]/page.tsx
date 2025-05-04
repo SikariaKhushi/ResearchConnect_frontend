@@ -53,7 +53,7 @@ const StudentSubmissionDetailPage = () => {
     setLoading(true);
     try {
         const token = localStorage.getItem('token');
-      const response = await fetch(`https://rf-backend-alpha.vercel.app/api/submissions/${submissionId}`, {
+      const response = await fetch(`https://reseach-connect-pkad.vercel.app/api/submissions/${submissionId}`, {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
@@ -130,7 +130,7 @@ const getCurrentUser = async (): Promise<User> => {
 
     try {
         const token = localStorage.getItem('token');
-      const response = await fetch(`https://rf-backend-alpha.vercel.app/api/submissions/${submissionId}/submit`, {
+      const response = await fetch(`https://reseach-connect-pkad.vercel.app/api/submissions/${submissionId}/submit`, {
         method: 'POST',
         body: formData,
         headers: {

@@ -30,7 +30,7 @@ export default function DemographicCard() {
     const fetchTrendingProjects = async () => {
       try {
         const response = await axios.get(
-          "https://rf-backend-alpha.vercel.app/api/projects/trending",
+          "https://reseach-connect-pkad.vercel.app/api/projects/trending",
           {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
